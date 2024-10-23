@@ -54,7 +54,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #6a0808; /* Default slider background */
+    background-color: #1e1717; /* Default slider background */
     border-radius: 34px;
     transition: background-color 0.2s;
 }
@@ -66,13 +66,13 @@
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: rgb(206, 192, 192); /* Default knob color */
+    background-color: rgb(138, 130, 130); /* Default knob color */
     border-radius: 50%;
     transition: transform 0.2s;
 }
 
 input:checked + .slider {
-    background-color: #4caf50; /* Slider background when checked */
+    background-color: #a3d5a3; /* Slider background when checked */
 }
 
 input:checked + .slider:before {
@@ -368,23 +368,26 @@ input:checked + .slider:before {
 
 
         <script>
-
-function toggleDarkMode() {
-            const body = document.body;
-            body.classList.toggle('dark-mode');
-            // Save preference to localStorage
-            localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
-        }
-
-        // Check localStorage for dark mode preference on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            const body = document.body;
-            const darkMode = localStorage.getItem('darkMode') === 'true';
-            if (darkMode) {
-                body.classList.add('dark-mode');
-                document.querySelector('input[type="checkbox"]').checked = true; // Check the toggle
+            function toggleDarkMode() {
+                const body = document.body;
+                body.classList.toggle('dark-mode');
+                // Save preference to localStorage
+                localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
             }
-        });
+        
+            // Check localStorage for dark mode preference on page load
+            document.addEventListener('DOMContentLoaded', () => {
+                const body = document.body;
+                // Check localStorage for dark mode preference
+                const darkMode = localStorage.getItem('darkMode') === 'true';
+                
+                // Apply dark mode if previously set
+                if (darkMode) {
+                    body.classList.add('dark-mode');
+                    document.querySelector('input[type="checkbox"]').checked = true; // Check the toggle
+                }
+            });
+        
             document.getElementById("contactForm").addEventListener("submit", function(event) {
                 setTimeout(function() {     
                     document.querySelector('input[name="Name"]').value = '';
@@ -393,5 +396,7 @@ function toggleDarkMode() {
                 }, 1000); 
             });
         </script>
+        
+        
     </body>
 </html>

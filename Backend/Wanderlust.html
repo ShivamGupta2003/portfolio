@@ -168,21 +168,37 @@
     <script>
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => card.classList.toggle('dark-mode'));
             // Save dark mode preference in localStorage
             const isDarkMode = document.body.classList.contains('dark-mode');
             localStorage.setItem('darkMode', isDarkMode);
         }
-
+    
         // Check localStorage for dark mode preference on page load
         window.onload = function() {
-            const isDarkMode = localStorage.getItem('darkMode') === 'true';
-            if (isDarkMode) {
-                document.body.classList.add('dark-mode');
-                const cards = document.querySelectorAll('.card');
-                cards.forEach(card => card.classList.add('dark-mode'));
-                document.querySelector('input[type="checkbox"]').checked = true;
+            // Check if a preference is saved in localStorage
+            const storedPreference = localStorage.getItem('darkMode');
+            
+            if (storedPreference !== null) {
+                // If a preference exists, use it
+                const isDarkMode = storedPreference === 'true';
+                if (isDarkMode) {
+                    document.body.classList.add('dark-mode');
+                    const checkbox = document.querySelector('input[type="checkbox"]');
+                    if (checkbox) {
+                        checkbox.checked = true;
+                    }
+                }
+            } else {
+                // Automatically apply dark mode based on user's system preference
+                const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                if (prefersDarkScheme) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', true); // Save this preference
+                    const checkbox = document.querySelector('input[type="checkbox"]');
+                    if (checkbox) {
+                        checkbox.checked = true;
+                    }
+                }
             }
         };
     </script>
