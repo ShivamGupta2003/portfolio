@@ -13,6 +13,7 @@
       
 
         <title>Welcome to Shivam's Portfolio Website </title>
+        <link rel="icon" href="assets\img\S.jpg" type="image/x-icon">
         <style>
  
 
@@ -28,6 +29,72 @@
         width: 100%; /* Make buttons full width */
     }
 }
+.dark-mode {
+    background-color: #181818; /* Dark mode background */
+    color: white; /* Dark mode text color */
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #6a0808; /* Default slider background */
+    border-radius: 34px;
+    transition: background-color 0.2s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgb(206, 192, 192); /* Default knob color */
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+input:checked + .slider {
+    background-color: #4caf50; /* Slider background when checked */
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px); /* Move knob when checked */
+}
+
+
+.home__social-icon {
+    margin: 0 10px; /* Space between icons */
+    color: #1e90ff; /* Darker blue color for visibility on black */
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+.home__social-icon:hover {
+    color: #ffcc00; /* Change color on hover, can be adjusted */
+}
+
+/* Additional styles for SVG icon color */
+.icon {
+    stroke: #1e90ff; /* Darker blue color for the SVG */
+}
+  
 
         </style>
     </head>
@@ -48,6 +115,15 @@
                         <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
                         <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
                         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                        
+                        <li class="nav__item"><label class="toggle">
+                            
+                            <input type="checkbox" onchange="toggleDarkMode()" />
+                            
+                            <span class="slider"></span>
+                           
+                        </label></li>
+                        
                     </ul>
                 </div>
 
@@ -55,7 +131,9 @@
                     <i class='bx bx-menu'></i>
                 </div>
             </nav>
+            <div class="light-effect"></div>
         </header>
+        <div class="light-effect"></div>
 
         <main class="l-main">
             <!--===== HOME =====-->
@@ -66,18 +144,29 @@
                     <a href="https://drive.google.com/file/d/1tiBpxWCPcuiaxbGcD3bPLGZDOqoTVA-9/view?usp=sharing" class="button" download>Download Resume</a>
                 </div>
                 
-
                 <div class="home__social">
-                    <a href=" https://www.linkedin.com/in/shivam-gupta-a44114229/" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                    <a href="https://leetcode.com/u/shivamgupta90353/" class="home__social-icon"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-leetcode"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 13h7.5" /><path d="M9.424 7.268l4.999 -4.999" /><path d="M16.633 16.644l-2.402 2.415a3.189 3.189 0 0 1 -4.524 0l-3.77 -3.787a3.223 3.223 0 0 1 0 -4.544l3.77 -3.787a3.189 3.189 0 0 1 4.524 0l2.302 2.313" /></svg></a>
-                    <a href="https://github.com/ShivamGupta2003" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+                    <a href="https://www.linkedin.com/in/shivam-gupta-a44114229/" class="home__social-icon">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                    <a href="https://leetcode.com/u/shivamgupta90353/" class="home__social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-leetcode">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 13h7.5" />
+                            <path d="M9.424 7.268l4.999 -4.999" />
+                            <path d="M16.633 16.644l-2.402 2.415a3.189 3.189 0 0 1 -4.524 0l-3.77 -3.787a3.223 3.223 0 0 1 0 -4.544l3.77 -3.787a3.189 3.189 0 0 1 4.524 0l2.302 2.313" />
+                        </svg>
+                    </a>
+                    <a href="https://github.com/ShivamGupta2003" class="home__social-icon">
+                        <i class='bx bxl-github'></i>
+                    </a>
                 </div>
+                
 
                 <div class="home__img">
                     <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     
                      
-                            <image class="home__blob-img" x="50" y="60" href="assets/img/perfil.png"/>
+                            <image class="home__blob-img" x="50" y="60" href="assets/img/perfil-removebg-preview.png"/>
                         </g>
                     </svg>
                 </div>
@@ -265,7 +354,7 @@
 
                 <a href="https://x.com/ShivamGupt23238" class="footer__icon mx-2"><i class='bx bxl-twitter'></i></a>
             </div>
-            <p class="footer__copy mt-3">&#169;TechCoder All rights reserved</p>
+            <p class="footer__copy">© 2024 Shivam ❤️. All rights reserved.</p>
         </footer>
         
 
@@ -279,6 +368,23 @@
 
 
         <script>
+
+function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            // Save preference to localStorage
+            localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+        }
+
+        // Check localStorage for dark mode preference on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            const darkMode = localStorage.getItem('darkMode') === 'true';
+            if (darkMode) {
+                body.classList.add('dark-mode');
+                document.querySelector('input[type="checkbox"]').checked = true; // Check the toggle
+            }
+        });
             document.getElementById("contactForm").addEventListener("submit", function(event) {
                 setTimeout(function() {     
                     document.querySelector('input[name="Name"]').value = '';
