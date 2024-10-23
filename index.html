@@ -135,8 +135,8 @@ input:checked + .slider:before {
                         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                         
                         <li class="nav__item"><label class="toggle">
-                            
-                            <input type="checkbox" onchange="toggleDarkMode()" />
+                            <input type="checkbox" onchange="toggleDarkMode()">
+
                             
                             <span class="slider"></span>
                            
@@ -386,28 +386,46 @@ input:checked + .slider:before {
 
 
         <script>
-            function toggleDarkMode() {
-                const body = document.body;
-                body.classList.toggle('dark-mode');
-                // Save preference to localStorage
-                localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
-            }
-        
-            // Check localStorage for dark mode preference on page load
-            document.addEventListener('DOMContentLoaded', () => {
-                const body = document.body;
-                // Check localStorage for dark mode preference
+        function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    
+    // Save preference to localStorage
+    localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+}
 
-                const darkMode1 = localStorage.getItem('darkMode') === 'true';
-                const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+// Check system preference and localStorage for dark mode preference on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
 
-                
-                // Apply dark mode if previously set
-                if (darkMode  && darkMode1) {
-                    body.classList.add('dark-mode');
-                    document.querySelector('input[type="checkbox"]').checked = true; // Check the toggle
-                }
-            });
+    // Check localStorage for dark mode preference
+    const storedPreference = localStorage.getItem('darkMode');
+    
+    if (storedPreference) {
+        // Apply stored preference
+        const darkMode = storedPreference === 'true';
+        body.classList.toggle('dark-mode', darkMode);
+        document.querySelector('input[type="checkbox"]').checked = darkMode; // Set toggle checkbox
+    } else {
+        // Apply system preference if no localStorage preference
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDarkMode) {
+            body.classList.add('dark-mode');
+            document.querySelector('input[type="checkbox"]').checked = true; // Check the toggle
+        }
+    }
+});
+
+// Listen for changes in system dark mode preference
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    if (!localStorage.getItem('darkMode')) { // Only apply if no preference is saved
+        const darkModeOn = event.matches;
+        const body = document.body;
+        body.classList.toggle('dark-mode', darkModeOn);
+        document.querySelector('input[type="checkbox"]').checked = darkModeOn;
+    }
+});
+
         
             document.getElementById("contactForm").addEventListener("submit", function(event) {
                 setTimeout(function() {     
