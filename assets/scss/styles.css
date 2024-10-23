@@ -31,6 +31,7 @@
     --z-back: -10;
     --z-fixed: 100;
 
+
     @media screen and (min-width: 968px){
         --big-font-size: 3.5rem;
         --h2-font-size: 2rem;
@@ -38,6 +39,8 @@
         --smaller-font-size: .875rem;
     }
 }
+
+
 
 /*===== BASE =====*/
 *,::before,::after{
@@ -66,7 +69,8 @@ a{
 img{
     max-width: 100%;
     height: auto;
-    display: block;
+    display: block; 
+    background-color: #f0f0f0; 
 }
 
 /*===== CLASS CSS ===== */
@@ -323,9 +327,10 @@ img{
         row-gap: 2rem;
     }
     &__img{
-        box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15); 
+       
         border-radius: .5rem;
         overflow: hidden;
+        box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.3);
         
         & img{
             transition: 1s;

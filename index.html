@@ -41,9 +41,14 @@ p {
         width: 100%; /* Make buttons full width */
     }
 }
+:root{
+    --box-shadow: 10px 10px 15px rgb(0, 0, 0);
+}
+
 .dark-mode {
     background-color: #181818; /* Dark mode background */
     color: white; /* Dark mode text color */
+    --box-shadow: 10px 10px 15px rgb(230, 217, 217);
 }
 
 .toggle {
@@ -108,6 +113,7 @@ input:checked + .slider:before {
 }
   
 
+
         </style>
     </head>
     <body>
@@ -150,7 +156,7 @@ input:checked + .slider:before {
         <main class="l-main">
             <!--===== HOME =====-->
             <section class="home bd-grid" id="home">
-                <div class="home__data">
+                <div class="home__data ">
                     <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Shivam Gupta</span><br>Web Developer</h1>
                     <a href="mailto:shivamgupta90353@gmail.com" class="button">Contact</a>
                     <a href="https://drive.google.com/file/d/1tiBpxWCPcuiaxbGcD3bPLGZDOqoTVA-9/view?usp=sharing" class="button" download>Download Resume</a>
@@ -301,9 +307,9 @@ input:checked + .slider:before {
             <section class="work section" id="work">
                 <h2 class="section-title">Work</h2>
 
-                <div class="work__container bd-grid">
-               
-                    <a href="html/ind.html" class="work__img">
+                <div class="work__container bd-grid ">
+                      
+                    <a href="html/ind.html" class="work__img ">
                         <img src="assets/img/work1.jpg" alt="">
                         <br>
                         <b>HTML,CSS AND JAVASCRIPT PROJECT</b>
@@ -391,7 +397,10 @@ input:checked + .slider:before {
             document.addEventListener('DOMContentLoaded', () => {
                 const body = document.body;
                 // Check localStorage for dark mode preference
-                const darkMode = localStorage.getItem('darkMode') === 'true';
+
+                // const darkMode = localStorage.getItem('darkMode') === 'true';
+                const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
                 
                 // Apply dark mode if previously set
                 if (darkMode) {
