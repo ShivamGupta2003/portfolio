@@ -398,12 +398,12 @@ input:checked + .slider:before {
                 const body = document.body;
                 // Check localStorage for dark mode preference
 
-                // const darkMode = localStorage.getItem('darkMode') === 'true';
+                const darkMode1 = localStorage.getItem('darkMode') === 'true';
                 const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
                 
                 // Apply dark mode if previously set
-                if (darkMode) {
+                if (darkMode  && darkMode1) {
                     body.classList.add('dark-mode');
                     document.querySelector('input[type="checkbox"]').checked = true; // Check the toggle
                 }
