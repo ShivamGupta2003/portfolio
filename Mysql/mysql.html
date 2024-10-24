@@ -109,6 +109,13 @@
         input[type="checkbox"]:checked + .slider:before {
             transform: translateX(20px); /* Move slider when checked */
         }
+
+        .car-body{
+             box-shadow: 0 0 10px 5px white;
+         }
+         .ca-body{
+             box-shadow: 0 0 2px 3px white;
+         }
     </style>
 </head>
 <body>
@@ -123,7 +130,7 @@
 
     <div class="container mt-5">
         <div class="card shadow-lg">
-            <div class="card-body">
+            <div class="card-body car-body">
                 <h2 class="card-title text-center text-primary">MySQL Database Management System</h2>
                 <p class="card-text mt-3">
                     This project demonstrates the design and implementation of a MySQL database for a simple e-commerce platform, showcasing effective management of product data, user accounts, and order processing.
@@ -135,7 +142,7 @@
                     </a>
                 </p>
                 <div class="video-container mb-4">
-                    <div class="embed-responsive embed-responsive-1by1">
+                    <div class="embed-responsive embed-responsive-1by1 ca-body">
                         <video controls class="embed-responsive-item">
                             <source src="Total User.mp4" type="video/mp4">
                             Your browser does not support the video tag.

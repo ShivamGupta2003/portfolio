@@ -115,6 +115,12 @@ p {
         input[type="checkbox"]:checked + .slider:before {
             transform: translateX(20px); /* Move slider when checked */
         }
+        .car-body{
+             box-shadow: 0 0 10px 5px white;
+         }
+         .ca-body{
+             box-shadow: 0 0 2px 3px white;
+         }
     </style>
 </head>
 <body>
@@ -129,7 +135,7 @@ p {
 
     <div class="container mt-5">
         <div class="card shadow-lg">
-            <div class="card-body">
+            <div class="card-body car-body">
                 <h2 class="card-title text-center text-primary">Chatting Project with MongoDB</h2>
 
                 <p class="card-text mt-3">
@@ -146,7 +152,7 @@ p {
 
                 <!-- Video demo of the project -->
                 <div class="video-container no-margin">
-                    <div class="embed-responsive embed-responsive-1by1">
+                    <div class="embed-responsive embed-responsive-1by1 ca-body">
                         <video controls class="embed-responsive-item">
                             <source src="Chats.mp4" type="video/mp4">
                             Your browser does not support the video tag.

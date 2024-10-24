@@ -16,6 +16,60 @@
         <link rel="icon" href="assets\img\S.jpg" type="image/x-icon">
         <style>
 
+
+
+/* Style for the inputs with the 'car' class */
+.contact__input.car {
+    background-color: rgb(250, 248, 248); /* Example style for 'car' class */
+    box-shadow: 0 0 10px 5px rgb(222, 216, 216); /* Example box shadow */
+}
+
+/* When the user focuses (clicks) on the input or textarea, the style will change */
+.contact__input:focus {
+    box-shadow: none; /* Remove the shadow when the user focuses the input */
+}
+
+/* When the input has a valid value (user has typed something), the style will change */
+.contact__input:valid {
+    box-shadow: none; /* Remove the shadow once the input is valid */
+    background-color: white; /* Change background to white when input is valid */
+}
+
+
+
+
+    /* Dark mode for the header */
+    .dark-mode .l-header {
+        background-color: #333; /* Dark mode background color */
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.6); /* Light shadow in dark mode */
+    }
+
+    /* Menu text color and hover */
+    .nav__link {
+        color: #000; /* Light mode text color */
+        transition: color 0.3s;
+    }
+
+    .dark-mode .nav__link {
+        color: #fff; /* Dark mode text color */
+    }
+    .dark-mode .nav__logo {
+        color: #fff; 
+    }
+
+
+    .nav__link:hover {
+        color: #007bff; /* Change color on hover */
+    }
+
+    /* Dark mode toggle styles */
+  
+
+   
+
+   
+
+  
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap');
 
 
@@ -37,9 +91,14 @@ p {
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .button {
-        margin: 5px 0; /* Adjust spacing on mobile */
+        margin: 12px 0; /* Adjust spacing on mobile */
         width: 100%; /* Make buttons full width */
     }
+    .icon-circle{
+        margin-bottom :30px;
+    }
+
+
 }
 :root{
     --box-shadow: 10px 10px 15px rgb(0, 0, 0);
@@ -98,13 +157,11 @@ input:checked + .slider:before {
 
 
 .home__social-icon {
-    margin: 0 10px; /* Space between icons */
+    margin: 20px 20px; /* Space between icons */
     color: #1e90ff; /* Darker blue color for visibility on black */
     transition: color 0.3s; /* Smooth color transition on hover */
-}
+      
 
-.home__social-icon:hover {
-    color: #ffcc00; /* Change color on hover, can be adjusted */
 }
 
 /* Additional styles for SVG icon color */
@@ -114,11 +171,82 @@ input:checked + .slider:before {
   
 
 
+
+.work__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* For responsiveness */
+            gap: 20px; /* Space between each project box */
+        }
+
+        .work__img {
+            display: block;
+            text-align: center;
+        
+            padding: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 10px; /* Optional: Makes the corners rounded */
+        }
+
+        .work__img img {
+            max-width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Adding white border shadow to each box */
+        .work__img {
+            box-shadow: 0 4px 15px rgba(249, 248, 248, 2); /* White shadow */
+        }
+
+        /* Adding hover effect to increase shadow for a bit of animation */
+        .work__img:hover {
+            transform: scale(1.05); /* Zoom in slightly */
+            box-shadow: 0 6px 20px rgb(204, 104, 104); /* Stronger white shadow on hover */
+        }
+
+        /* For the text inside */
+        .work__img b {
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #131414; /* Change color as needed */
+        }
+         .dark-mode  .work__img b {
+                    color: white;
+         }
+
+         .car{
+          box-shadow: 0 0 10px 5px white;
+         }
+
+        
+
+
+
+         .icon-circle {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ccc; /* Initial border color */
+    border-radius: 50%; /* Makes it a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: border-color 0.3s ease; /* Smooth transition for hover effect */
+    font-size: 24px; /* Icon size */
+    margin-right: 30px;
+}
+
+.icon-circle:hover {
+    border-color: black; /* Change border color on hover */
+    box-shadow: 0 0 10px 5px rgb(12, 12, 12);
+}
+
+
         </style>
     </head>
     <body>
         <!--===== HEADER =====-->
-        <header class="l-header">
+        <header class="l-header car">
             <nav class="nav bd-grid">
                 <div>
                     <a href="#" class="nav__logo">Shivam Gupta</a>
@@ -149,23 +277,30 @@ input:checked + .slider:before {
                     <i class='bx bx-menu'></i>
                 </div>
             </nav>
-            <div class="light-effect"></div>
+           
         </header>
-        <div class="light-effect"></div>
+      
 
         <main class="l-main">
             <!--===== HOME =====-->
             <section class="home bd-grid" id="home">
                 <div class="home__data ">
                     <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Shivam Gupta</span><br>Web Developer</h1>
-                    <a href="mailto:shivamgupta90353@gmail.com" class="button">Contact</a>
-                    <a href="https://drive.google.com/file/d/1tiBpxWCPcuiaxbGcD3bPLGZDOqoTVA-9/view?usp=sharing" class="button" download>Download Resume</a>
+                    <a href="mailto:shivamgupta90353@gmail.com" class="button car">Contact</a>
+                    <a href="https://drive.google.com/file/d/1tiBpxWCPcuiaxbGcD3bPLGZDOqoTVA-9/view?usp=sharing" class="button car" download>Download Resume</a>
                 </div>
                 
                 <div class="home__social">
-                    <a href="https://www.linkedin.com/in/shivam-gupta-a44114229/" class="home__social-icon">
-                        <i class='bx bxl-linkedin'></i>
-                    </a>
+                   
+                    <div class="icon-circle car">
+                        <a href="https://www.linkedin.com/in/shivam-gupta-a44114229/" class="home__social-icon">
+                            <i class='bx bxl-linkedin'></i>
+                        </a>
+                    </div>
+
+                    <div class="icon-circle car"> 
+
+
                     <a href="https://leetcode.com/u/shivamgupta90353/" class="home__social-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-leetcode">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -174,11 +309,13 @@ input:checked + .slider:before {
                             <path d="M16.633 16.644l-2.402 2.415a3.189 3.189 0 0 1 -4.524 0l-3.77 -3.787a3.223 3.223 0 0 1 0 -4.544l3.77 -3.787a3.189 3.189 0 0 1 4.524 0l2.302 2.313" />
                         </svg>
                     </a>
+                    </div>
+                    <div class="icon-circle car">
                     <a href="https://github.com/ShivamGupta2003" class="home__social-icon">
                         <i class='bx bxl-github'></i>
                     </a>
                 </div>
-                
+                </div>
 
                 <div class="home__img">
                     <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -196,8 +333,9 @@ input:checked + .slider:before {
 
                 <div class="about__container bd-grid">
                     <div class="about__img">
-                        <img src="assets/img/about.jpg" alt="">
+                        <img src="assets/img/about.jpg" alt="" style="box-shadow: 0 4px 15px rgba(255, 255, 255, 0.8); border-radius: 10px;">
                     </div>
+                    
                     
                     <div>
                         <h2 class="about__subtitle">I'am Shivam Gupta</h2>
@@ -297,7 +435,7 @@ input:checked + .slider:before {
                     </div>
                     
                     
-                    <div>              
+                    <div  class=" work__img">               
                         <img src="assets/img/work3.jpg" alt="" class="skills__img">
                     </div>
                 </div>
@@ -306,13 +444,12 @@ input:checked + .slider:before {
             <!--===== WORK =====-->
             <section class="work section" id="work">
                 <h2 class="section-title">Work</h2>
-
-                <div class="work__container bd-grid ">
-                      
-                    <a href="html/ind.html" class="work__img ">
+        
+                <div class="work__container bd-grid">
+                    <a href="html/ind.html" class="work__img">
                         <img src="assets/img/work1.jpg" alt="">
                         <br>
-                        <b>HTML,CSS AND JAVASCRIPT PROJECT</b>
+                        <b>HTML, CSS AND JAVASCRIPT PROJECT</b>
                     </a>
                     <a href="Node/Node.html" class="work__img">
                         <img src="assets/img/work5.jpg" alt="">
@@ -324,7 +461,6 @@ input:checked + .slider:before {
                         <br>
                         <b>MYSQL PROJECT</b>
                     </a>
-                   
                     <a href="MongoDb/Mongobd.html" class="work__img">
                         <img src="assets/img/work3.jpg" alt="">
                         <br>
@@ -335,7 +471,6 @@ input:checked + .slider:before {
                         <br>
                         <b>BACKEND PROJECT</b>
                     </a>
-
                     <a href="React/React.html" class="work__img">
                         <img src="assets/img/work6.jpg" alt="">
                         <br>
@@ -351,10 +486,10 @@ input:checked + .slider:before {
                 <h2 class="section-title">Contact</h2>
                 <div class="contact__container bd-grid">
                     <form id="contactForm" action="mailto:shivamgupta90353@gmail.com" method="POST" enctype="text/plain" class="contact__form">
-                        <input type="text" name="Name" placeholder="Name" class="contact__input" required>
-                        <input type="number" name="Phone No." placeholder="Phone No." class="contact__input" required>
-                        <textarea name="Message" id="" cols="0" rows="10" class="contact__input" placeholder="Your message" required></textarea>
-                        <input type="submit" value="Send" class="contact__button button">
+                        <input type="text" name="Name" placeholder="Name" class="contact__input car" required>
+                        <input type="number" name="Phone No." placeholder="Phone No." class="contact__input car" required>
+                        <textarea name="Message" id="" cols="0" rows="10" class="contact__input car" placeholder="Your message" required></textarea>
+                        <input type="submit" value="Send" class="contact__button button car">
                     </form>
                 </div>
             </section>
@@ -362,7 +497,7 @@ input:checked + .slider:before {
         </main>
 
         <!--===== FOOTER =====-->
-        <footer class="footer text-center mt-5">
+        <footer class="footer text-center mt-5 ">
             <p class="footer__title">Connect with Me</p>
             <div class="footer__social">
                 <a href="https://www.linkedin.com/in/shivam-gupta-a44114229/" class="footer__icon mx-2" ><i class='bx bxl-linkedin'></i></a>
@@ -386,6 +521,10 @@ input:checked + .slider:before {
 
 
         <script>
+
+
+
+
         function toggleDarkMode() {
     const body = document.body;
     body.classList.toggle('dark-mode');
