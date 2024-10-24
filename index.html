@@ -147,18 +147,22 @@ p {
 
 .slider:before {
     position: absolute;
-    content: "";
+    content: "\f185";
     height: 26px;
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: rgb(138, 130, 130); /* Default knob color */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 18px;/* Default knob color */
     border-radius: 50%;
     transition: transform 0.2s;
 }
 
+
+
 input:checked + .slider {
-    background-color: #a3d5a3; /* Slider background when checked */
+    background-color: #0a5c0a; /* Slider background when checked */
 }
 
 input:checked + .slider:before {
